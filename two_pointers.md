@@ -1,6 +1,7 @@
 1. [Leetcode ：167. Two Sum II - Input array is sorted (Easy)](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/).
 
 Input: numbers={2, 7, 11, 15}, target=9
+
 Output: index1=1, index2=2
 
 
@@ -12,7 +13,7 @@ def twoSum(self, numbers, target):
       :rtype: List[int]
       """
       i = 0
-        j = len(numbers) - 1
+      j = len(numbers) - 1
         while i < j:
             sum = numbers[i] + numbers[j]
             if (sum == target):
@@ -24,3 +25,17 @@ def twoSum(self, numbers, target):
         
         
 **Java**
+      int i = 0;
+      int j = numbers.length;
+      int sum;
+      while (i < j){
+            sum = numbers[i] + numbers[j]
+            if (sum == target){
+                  return new int[] {i, j}
+            }
+            if (sum < target){
+                  i++
+            } else { j++}
+      }
+      return null;
+
