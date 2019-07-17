@@ -137,3 +137,47 @@ class Solution(object):
 ```
 
 
+
+5. [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/).
+```python
+# python
+
+```
+
+```java
+
+```
+
+6. [88. Merge Sorted Array (Easy)](https://leetcode.com/problems/merge-sorted-array/description/).
+```python
+#python
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify nums1 in-place instead.
+        """
+        n1 = m - 1
+        n2 = n - 1
+        nTotal = m + n - 1
+        while n1 >= 0 or n2 >= 0:
+            if n1 < 0:
+                nums1[nTotal] = nums2[n2]
+                n2 -= 1
+            elif n2 < 0:
+                nums1[nTotal] = nums1[n1]
+                n1 -= 1
+            elif nums1[n1] > nums2[n2]:
+                nums1[nTotal] = nums1[n1]
+                n1-=1
+            else:
+                nums1[nTotal] = nums2[n2]
+                n2-=1
+            nTotal -= 1        
+        
+```
+
+
