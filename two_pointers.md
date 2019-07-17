@@ -5,7 +5,7 @@ Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 
 
-**python:**
+```python
 def twoSum(self, numbers, target):
       """
       :type numbers: List[int]
@@ -22,9 +22,9 @@ def twoSum(self, numbers, target):
                 i+=1
             else:j-=1
         return None
+ ```       
         
-        
-**Java**
+```Java
       int i = 0;
       int j = numbers.length;
       int sum;
@@ -38,11 +38,13 @@ def twoSum(self, numbers, target):
             } else { j++}
       }
       return null;
+```
+
 
 2. [633. Sum of Square Numbers (easy)](https://leetcode.com/problems/sum-of-square-numbers/description/).
 Given a non-negative integer c, your task is to decide whether there're two integers a and b such that a2 + b2 = c.
 
-**python**
+```python
 import math
     def judgeSquareSum(self, c):
         """
@@ -60,13 +62,17 @@ import math
                 j-=1
             else: i+=1
         return False
+```
 
-**java**
+
+```java
+
+```
 
 
 3. [345. Reverse Vowels of a String (Easy)](https://leetcode.com/problems/reverse-vowels-of-a-string/).
 
-**python**
+```python
 class Solution(object):
     def reverseVowels(self, s):
         """
@@ -90,4 +96,8 @@ class Solution(object):
                 i+= 1
                 j-=1
         return "".join(res)
-**java**
+```
+
+```java
+
+```
