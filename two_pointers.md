@@ -6,6 +6,7 @@ Output: index1=1, index2=2
 
 
 ```python
+# python
 def twoSum(self, numbers, target):
       """
       :type numbers: List[int]
@@ -25,6 +26,7 @@ def twoSum(self, numbers, target):
  ```       
         
 ```Java
+// java
       int i = 0;
       int j = numbers.length;
       int sum;
@@ -45,6 +47,7 @@ def twoSum(self, numbers, target):
 Given a non-negative integer c, your task is to decide whether there're two integers a and b such that a2 + b2 = c.
 
 ```python
+# python
 import math
     def judgeSquareSum(self, c):
         """
@@ -66,7 +69,7 @@ import math
 
 
 ```java
-
+// java
 ```
 
 
@@ -101,3 +104,36 @@ class Solution(object):
 ```java
 
 ```
+
+
+
+4. []
+```python
+# python
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        k = len(s)
+        for i, j in zip(range(k/2), range(k-1, k/2, -1)):
+            if s[i] != s[j]:
+                return self.isPalin(s, i, j-1) or self.isPalin(s, i+1, j)
+        return True
+        
+    
+    def isPalin(self, s, i, j):
+        while i < j:
+            if s[i] != s[j]:
+                return False
+            i+=1
+            j-=1
+        return True
+```
+
+```java
+// java
+```
+
+
