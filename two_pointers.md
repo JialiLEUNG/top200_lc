@@ -4,11 +4,12 @@
 * [3. 反转字符串中的元音字符](#3-反转字符串中的元音字符)
 * [4. 回文字符串](#4-回文字符串)
 * [5. 归并两个有序数组](#5-归并两个有序数组)
-* [6. 判断链表是否存在环](#6-判断链表是否存在环)
-* [7. 最长子序列](#7-最长子序列)
+* [6. 最长子序列](#7-最长子序列)
+* [7. 判断链表是否存在环](#6-判断链表是否存在环)
 <!-- GFM-TOC -->
 
 # 1. 有序数组的 Two Sum
+
 [Leetcode ：167. Two Sum II - Input array is sorted (Easy)](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/).
 
 Input: numbers={2, 7, 11, 15}, target=9
@@ -54,7 +55,9 @@ def twoSum(self, numbers, target):
 ```
 
 
-#2. [633. Sum of Square Numbers (easy)](https://leetcode.com/problems/sum-of-square-numbers/description/).
+# 2. 两数平方和
+
+[633. Sum of Square Numbers (easy)](https://leetcode.com/problems/sum-of-square-numbers/description/).
 Given a non-negative integer c, your task is to decide whether there're two integers a and b such that a2 + b2 = c.
 
 ```python
@@ -84,7 +87,9 @@ import math
 ```
 
 
-#3. [345. Reverse Vowels of a String (Easy)](https://leetcode.com/problems/reverse-vowels-of-a-string/).
+# 3. 反转字符串中的元音字符 
+
+[345. Reverse Vowels of a String (Easy)](https://leetcode.com/problems/reverse-vowels-of-a-string/).
 
 ```python
 class Solution(object):
@@ -118,7 +123,9 @@ class Solution(object):
 
 
 
-#4. [680. Valid Palindrome II (easy)](https://leetcode.com/problems/valid-palindrome-ii/description/).
+# 4. 回文字符串
+
+[680. Valid Palindrome II (easy)](https://leetcode.com/problems/valid-palindrome-ii/description/).
 ```python
 # python
 class Solution(object):
@@ -147,43 +154,9 @@ class Solution(object):
 // java
 ```
 
+# 5. 归并两个有序数组
 
-
-#5. [141. Linked List Cycle (Easy)](https://leetcode.com/problems/linked-list-cycle/description/).
-```python
-# python
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution(object):
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-        if head == None:
-            return False
-        
-        slow = head
-        fast = head.next
-        
-        while slow != None and fast != None and fast.next != None:
-            if slow == fast:
-                return True
-            slow = slow.next
-            fast = fast.next.next
-        return False
-
-```
-
-```java
-# java
-```
-
-#6. [88. Merge Sorted Array (Easy)](https://leetcode.com/problems/merge-sorted-array/description/).
+[88. Merge Sorted Array (Easy)](https://leetcode.com/problems/merge-sorted-array/description/).
 ```python
 #python
 class Solution(object):
@@ -221,7 +194,9 @@ class Solution(object):
 
 ```
 
-#7. [524. Longest Word in Dictionary through Deleting (Medium)](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/description/)
+# 6. 最长子序列 
+
+[524. Longest Word in Dictionary through Deleting (Medium)](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/description/)
 ```python
 # python
 
@@ -230,6 +205,46 @@ class Solution(object):
 ```java
 
 ```
+
+# 7. 判断链表是否存在环
+
+[141. Linked List Cycle (Easy)](https://leetcode.com/problems/linked-list-cycle/description/).
+```python
+# python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if head == None:
+            return False
+        
+        slow = head
+        fast = head.next
+        
+        while slow != None and fast != None and fast.next != None:
+            if slow == fast:
+                return True
+            slow = slow.next
+            fast = fast.next.next
+        return False
+
+```
+
+```java
+# java
+```
+
+
+
+
 
 
 
