@@ -8,7 +8,7 @@
 * [7. 最长子序列](#7-最长子序列)
 <!-- GFM-TOC -->
 
-#1. 1. 有序数组的 Two Sum
+# 1. 有序数组的 Two Sum
 [Leetcode ：167. Two Sum II - Input array is sorted (Easy)](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/).
 
 Input: numbers={2, 7, 11, 15}, target=9
