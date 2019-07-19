@@ -9,6 +9,7 @@
 
 
 # 1. 求开方
+[69. Sqrt(x) (Easy)](https://leetcode.com/problems/sqrtx/description/).
 ```python
 #python
 
@@ -35,3 +36,32 @@ class Solution(object):
                 left = mid + 1
         return right
 ```
+
+
+# 2. 大于给定元素的最小元素
+[744. Find Smallest Letter Greater Than Target (Easy)](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+
+```python
+class Solution:
+    def nextGreatestLetter(self, letters, target):
+        """
+        :type letters: List[str]
+        :type target: str
+        :rtype: str
+        """
+        length = len(letters)
+        left = 0
+        right = length - 1
+        
+        while left <= right:
+            mid = left + int((right - left) / 2)
+            if letters[mid] <= target:
+                left = mid + 1
+            elif letters[mid] > target:
+                right = mid - 1
+        if left < length:
+            return letters[left]
+        else:
+            return letters[0]
+```
+
