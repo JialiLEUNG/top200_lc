@@ -118,4 +118,29 @@ class Solution(object):
 [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/.)
 ```python
 # not solved
+class Solution(object):
+    def searchRange(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        first = self.search(nums, target)
+        last  = self.search(nums, target+1) - 1
+        print(last)
+        if first == len(nums) or nums[first] != target:
+            return [-1,-1]
+        return [first, max(first, last)]
+        
+    def search(self, nums, target):
+        left = 0
+        right = len(nums)
+        while left < right:
+            mid = left + int(right - left) / 2
+            if nums[mid] >= target:
+                right = mid
+            else:
+                left = mid + 1
+
+        return left
 ```
