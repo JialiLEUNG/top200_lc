@@ -113,3 +113,9 @@ class Solution(object):
                 left = mid + 1
         return left  
 ```
+
+# 6. 查找区间
+[34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/.)
+```python
+# not solved
+```
