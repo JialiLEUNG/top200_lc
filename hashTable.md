@@ -71,47 +71,37 @@ public int findLHS(int[] nums) {
 
 [128. Longest Consecutive Sequence (Hard)](https://leetcode.com/problems/longest-consecutive-sequence/description/)
 
-```html
-Given [100, 4, 200, 1, 3, 2],
-The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
-```
-
-要求以 O(N) 的时间复杂度求解。
-
 ```java
+# java
 public int longestConsecutive(int[] nums) {
-    Map<Integer, Integer> countForNum = new HashMap<>();
-    for (int num : nums) {
-        countForNum.put(num, 1);
+        Map<Integer, Integer> countForNum = new HashMap<>();
+        for (int num:nums){
+            countForNum.put(num, 1);
+        }
+        for (int num:nums){
+            forward(countForNum, num);
+        }
+        return maxCount(countForNum);
     }
-    for (int num : nums) {
-        forward(countForNum, num);
+    
+    private int forward(Map<Integer, Integer> countForNum, int num){
+        if (!countForNum.containsKey(num)){
+            return 0;
+        }
+        int count = countForNum.get(num);
+        if (count > 1){
+            return count;
+        }
+        count = forward(countForNum, num+1) + 1;
+        countForNum.put(num, count);
+        return count;
     }
-    return maxCount(countForNum);
-}
-
-private int forward(Map<Integer, Integer> countForNum, int num) {
-    if (!countForNum.containsKey(num)) {
-        return 0;
+    
+    private int maxCount(Map<Integer, Integer> countForNum){
+        int max = 0;
+        for (int num:countForNum.keySet()){
+            max = Math.max(max, countForNum.get(num));
+        }
+        return max;
     }
-    int cnt = countForNum.get(num);
-    if (cnt > 1) {
-        return cnt;
-    }
-    cnt = forward(countForNum, num + 1) + 1;
-    countForNum.put(num, cnt);
-    return cnt;
-}
-
-private int maxCount(Map<Integer, Integer> countForNum) {
-    int max = 0;
-    for (int num : countForNum.keySet()) {
-        max = Math.max(max, countForNum.get(num));
-    }
-    return max;
-}
 ```
-
-
-
-<br><div align="center"><img width="320px" src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/other/公众号海报6.png"></img></div>
