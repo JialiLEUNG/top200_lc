@@ -17,21 +17,18 @@ Both HashSet and HashMap are not synchronized.
 
 [1. Two Sum (Easy)](https://leetcode.com/problems/two-sum/description/)
 
-可以先对数组进行排序，然后使用双指针方法或者二分查找方法。这样做的时间复杂度为 O(NlogN)，空间复杂度为 O(1)。
-
-用 HashMap 存储数组元素和索引的映射，在访问到 nums[i] 时，判断 HashMap 中是否存在 target - nums[i]，如果存在说明 target - nums[i] 所在的索引和 i 就是要找的两个数。该方法的时间复杂度为 O(N)，空间复杂度为 O(N)，使用空间来换取时间。
 
 ```java
-public int[] twoSum(int[] nums, int target) {
-    HashMap<Integer, Integer> indexForNum = new HashMap<>();
-    for (int i = 0; i < nums.length; i++) {
-        if (indexForNum.containsKey(target - nums[i])) {
-            return new int[]{indexForNum.get(target - nums[i]), i};
-        } else {
-            indexForNum.put(nums[i], i);
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> indexForNumber = new HashMap<>();
+        for (int i = 0; i < nums.length; i++){
+            if (indexForNumber.containsKey(target - nums[i])){
+                return new int[]{indexForNumber.get(target - nums[i]), i};
+            }
+            else indexForNumber.put(nums[i],i);
         }
+        return null;
     }
-    return null;
 }
 ```
 
@@ -122,13 +119,6 @@ private int maxCount(Map<Integer, Integer> countForNum) {
 }
 ```
 
-
-
-
-# 微信公众号
-
-
-更多精彩内容将发布在微信公众号 CyC2018 上，你也可以在公众号后台和我交流学习和求职相关的问题。另外，公众号提供了该项目的 PDF 等离线阅读版本，后台回复 "下载" 即可领取。公众号也提供了一份技术面试复习大纲，不仅系统整理了面试知识点，而且标注了各个知识点的重要程度，从而帮你理清多而杂的面试知识点，后台回复 "大纲" 即可领取。我基本是按照这个大纲来进行复习的，对我拿到了 BAT 头条等 Offer 起到很大的帮助。你们完全可以和我一样根据大纲上列的知识点来进行复习，就不用看很多不重要的内容，也可以知道哪些内容很重要从而多安排一些复习时间。
 
 
 <br><div align="center"><img width="320px" src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/other/公众号海报6.png"></img></div>
