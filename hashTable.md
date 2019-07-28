@@ -37,13 +37,14 @@ Both HashSet and HashMap are not synchronized.
 [217. Contains Duplicate (Easy)](https://leetcode.com/problems/contains-duplicate/description/)
 
 ```java
+# java
 public boolean containsDuplicate(int[] nums) {
-    Set<Integer> set = new HashSet<>();
-    for (int num : nums) {
-        set.add(num);
+        HashSet<Integer> res = new HashSet<>();
+        for(int num:nums){
+            res.add(num);
+        }
+        return res.size() < nums.length;
     }
-    return set.size() < nums.length;
-}
 ```
 
 # 3. 最长和谐序列
