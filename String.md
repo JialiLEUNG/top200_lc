@@ -114,19 +114,19 @@ Explanation : One longest palindrome that can be built is "dccaccd", whose lengt
 
 ```java
 public int longestPalindrome(String s) {
-    int[] cnts = new int[256];
-    for (char c : s.toCharArray()) {
-        cnts[c]++;
+        int[] count = new int[128]; // or change 128 to 256 for extended ascii table.
+        for (char i:s.toCharArray()){
+            count[i]++;
+        }
+        int palindrome = 0;
+        for (int i:count){
+            palindrome += i/2 * 2;
+        }
+        if (palindrome < s.length()){
+            palindrome+=1;
+        }
+        return palindrome;
     }
-    int palindrome = 0;
-    for (int cnt : cnts) {
-        palindrome += (cnt / 2) * 2;
-    }
-    if (palindrome < s.length()) {
-        palindrome++;   // 这个条件下 s 中一定有单个未使用的字符存在，可以把这个字符放到回文的最中间
-    }
-    return palindrome;
-}
 ```
 
 # 6. 字符串同构
