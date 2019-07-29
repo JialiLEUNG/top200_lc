@@ -144,19 +144,22 @@ Given "paper", "title", return true.
 记录一个字符上次出现的位置，如果两个字符串中的字符上次出现的位置一样，那么就属于同构。
 
 ```java
+# java
 public boolean isIsomorphic(String s, String t) {
-    int[] preIndexOfS = new int[256];
-    int[] preIndexOfT = new int[256];
-    for (int i = 0; i < s.length(); i++) {
-        char sc = s.charAt(i), tc = t.charAt(i);
-        if (preIndexOfS[sc] != preIndexOfT[tc]) {
-            return false;
+        int[] countS = new int[128];
+        int[] countT = new int[128];
+        
+        for (int i=0; i < s.length(); i++){
+            char charS = s.charAt(i);
+            char charT = t.charAt(i);
+            if (countS[charS] != countT[charT]){
+                return false;
+            }
+            countS[charS] = i + 1;
+            countT[charT] = i + 1;
         }
-        preIndexOfS[sc] = i + 1;
-        preIndexOfT[tc] = i + 1;
+        return true; 
     }
-    return true;
-}
 ```
 
 # 7. 回文子字符串个数
