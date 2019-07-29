@@ -166,32 +166,23 @@ public boolean isIsomorphic(String s, String t) {
 
 [647. Palindromic Substrings (Medium)](https://leetcode.com/problems/palindromic-substrings/description/)
 
-```html
-Input: "aaa"
-Output: 6
-Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
-```
-
-从字符串的某一位开始，尝试着去扩展子字符串。
-
 ```java
-private int cnt = 0;
-
-public int countSubstrings(String s) {
-    for (int i = 0; i < s.length(); i++) {
-        extendSubstrings(s, i, i);     // 奇数长度
-        extendSubstrings(s, i, i + 1); // 偶数长度
+# java
+private int count = 0;
+    public int countSubstrings(String s) {
+        for (int i = 0; i < s.length(); i++){
+            extendPalindrome(s, i, i);
+            extendPalindrome(s, i, i + 1);
+        }
+        return count;
     }
-    return cnt;
-}
-
-private void extendSubstrings(String s, int start, int end) {
-    while (start >= 0 && end < s.length() && s.charAt(start) == s.charAt(end)) {
-        start--;
-        end++;
-        cnt++;
+    private void extendPalindrome(String s, int left, int right){
+        while (left >=0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+            left--;
+            right++;
+            count++;
+        }
     }
-}
 ```
 
 # 8. 判断一个整数是否是回文数
