@@ -67,7 +67,9 @@ Return "student a am I"
 
 将每个单词翻转，然后将整个字符串翻转。
 
-# 4. Valid Anagram (Easy) [242. Valid Anagram (Easy)](https://leetcode.com/problems/valid-anagram/description/)
+# 4. Valid Anagram (Easy) 
+
+[242. Valid Anagram (Easy)](https://leetcode.com/problems/valid-anagram/description/)
 
 ```html
 s = "anagram", t = "nagaram", return true.
