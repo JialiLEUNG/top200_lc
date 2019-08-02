@@ -194,20 +194,7 @@ private int count = 0;
 将整数分成左右两部分，右边那部分需要转置，然后判断这两部分是否相等。
 
 ```java
-public boolean isPalindrome(int x) {
-    if (x == 0) {
-        return true;
-    }
-    if (x < 0 || x % 10 == 0) {
-        return false;
-    }
-    int right = 0;
-    while (x > right) {
-        right = right * 10 + x % 10;
-        x /= 10;
-    }
-    return x == right || x == right / 10;
-}
+# not solved
 ```
 
 # 9. 统计二进制字符串中连续 1 和连续 0 数量相同的子字符串个数
@@ -221,21 +208,6 @@ Explanation: There are 6 substrings that have equal number of consecutive 1's an
 ```
 
 ```java
-public int countBinarySubstrings(String s) {
-    int preLen = 0, curLen = 1, count = 0;
-    for (int i = 1; i < s.length(); i++) {
-        if (s.charAt(i) == s.charAt(i - 1)) {
-            curLen++;
-        } else {
-            preLen = curLen;
-            curLen = 1;
-        }
-
-        if (preLen >= curLen) {
-            count++;
-        }
-    }
-    return count;
-}
+# not solved
 ```
 
