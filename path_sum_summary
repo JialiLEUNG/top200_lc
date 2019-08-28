@@ -1,0 +1,97 @@
+1 直上直下
+1.1 从上往下 （先处理当前node, 再处理它的左右）
+1.1.1 root (包含) 到 Leaf (包含)   
+特点：不管怎么样都要加上当前节点    即  sum += root.val;
+只有走到叶子节点才需要处理：更新max[0]或者判断是否=target
+
+( a )  找 max path
+
+void maxPath(TreeNode root, int sum, int[] max) {
+if (root == null) return;
+sum += root.val;
+if (root.left == null && root.right == null) {
+  max[0] = Math.max(sum, max[0]);
+  return;
+}
+maxPath(root.left, sum, max);
+maxPath(root.right, sum, max);
+}
+
+( b )  找 path sum == target
+
+leetcode path sum
+
+boolean hasPathSum(TreeNode root, int sum) {
+          if (root == null) return false;
+          if (root.left == null && root.right == null) {
+              return sum == root.val;
+          }
+         return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+     }
+
+leetcode path sum II
+void pathSumHelper(TreeNode root, int sum, int target, List<Integer> list, List<List<Integer>> res) {
+          if (root == null) return;
+          sum += root.val;
+          list.add(root.val);
+          if (root.left == null && root.right == null) {
+             if (sum == target) {
+                  res.add(new ArrayList<>(list));
+             }
+         }
+        pathSumHelper(root.left, sum, target, list, res);
+        pathSumHelper(root.right, sum, target, list, res);
+        list.remove(list.size() - 1);
+    }
+}
+
+
+
+
+
+1.1.2 root 到 Leaf 所在的path，可以不是root/Leaf  
+特点：不同于1.1.2   只有sum >= 0时  sum += root.val;   
+如果 sum < 0   sum 重新开始  sum = root.val;
+              每走一步都需要处理：更新max[0]
+
+( a )  找 max path
+void maxPath(TreeNode root, int sum, int[] max) {
+  if (root == null) return;
+  if (sum < 0) sum = root.val;
+  else sum += root.val;
+  max[0] = Math.max(sum, max[0]);
+  maxPath(root.left, sum, max);
+maxPath(root.right, sum, max);
+}
+
+
+1.1 从下往上  （先处理它的左右， 再把左右返回的值给当前node处理）
+
+root 到 Leaf 所在的path，可以不是root/Leaf  
+
+( a )  找 max path
+
+int maxPath(TreeNode root, int[] max) {
+if (root == null) return 0;
+int left = maxPath(root.left, max);
+left = left > 0 ? left : 0;
+int right = maxPath(root.right, max);
+right = right > 0 ? right : 0;
+max[0] = Math.max(Math.max(left, right) + root.val, max[0]); 
+return Math.max(left, right) + root.val;
+}
+
+2 非线性
+any node to any node  
+不同于上面root 到 Leaf 所在的path： 更新max[0]时可以是人字形，所以left + right + root.val,  其他一模一样
+( a )  找 max‍‌‌‌‍‌‍‍‍‍‍‌‌‍‍‌‌‌‌ path  (leetcode 124)
+        
+int maxPath(TreeNode root, int[] max) {
+if (root == null) return 0;
+int left = maxPath(root.left, max);
+left = left > 0 ? left : 0;
+int right = maxPath(root.right, max);
+right = right > 0 ? right : 0;
+max[0] = Math.max(left + right + root.val, max[0]);
+return Math.max(left, right) + root.val;
+}
